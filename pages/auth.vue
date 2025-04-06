@@ -7,12 +7,14 @@ const items = [
   {
     label: 'Account',
     icon: 'i-lucide-user',
-    slot: 'account' as const
+    slot: 'account' as const,
+    description: 'Enter your account details'
   },
   {
-    label: 'Password',
+    label: 'Register',
     icon: 'i-lucide-lock',
-    slot: 'password' as const
+    slot: 'password' as const,
+    description: 'Create an account'
   }
 ] satisfies TabsItem[]
 
@@ -27,7 +29,7 @@ const state = reactive({
 
 <template>
     <NuxtLayout :name="layout">
-        <UTabs :items="items" variant="link" class="gap-4 w-full" :ui="{ trigger: 'flex-1' }">
+        <UTabs :items="items" variant="link" class="gap-4 w-full max-w-md" :ui="{ trigger: 'flex-1' }">
         <template #account="{ item }">
         <p class="text-(--ui-text-muted) mb-4">
             {{ item.description }}
