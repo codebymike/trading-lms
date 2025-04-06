@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { TabsItem } from '@nuxt/#ui/tabs'
+import type { TabsItem } from '@nuxt/ui'
 import { reactive } from 'vue'
 const layout = 'auth'
 
@@ -18,13 +18,17 @@ const items = [
   }
 ] satisfies TabsItem[]
 
-const state = reactive({
-  name: '',
-  username: '',
-  currentPassword: '',
-  newPassword: '',
-  confirmPassword: ''
+const loginForm = reactive({
+  email: '',
+  password: ''
 })
+
+const registerForm = reactive({
+  name: '',
+  email: '',
+  password: ''
+})
+
 </script>
 
 <template>
@@ -35,12 +39,12 @@ const state = reactive({
             {{ item.description }}
         </p>
 
-        <UForm :state="state" class="flex flex-col gap-4">
+        <UForm :state="loginForm" class="flex flex-col gap-4">
             <UFormField label="Name" name="name">
-            <UInput v-model="state.name" class="w-full" />
+            <UInput v-model="loginForm.name" class="w-full" />
             </UFormField>
             <UFormField label="Username" name="username">
-            <UInput v-model="state.username" class="w-full" />
+            <UInput v-model="loginForm.username" class="w-full" />
             </UFormField>
 
             <UButton label="Save changes" type="submit" variant="soft" class="self-end" />
@@ -52,15 +56,15 @@ const state = reactive({
             {{ item.description }}
         </p>
 
-        <UForm :state="state" class="flex flex-col gap-4">
+        <UForm :state="registerForm" class="flex flex-col gap-4">
             <UFormField label="Current Password" name="current" required>
-            <UInput v-model="state.currentPassword" type="password" required class="w-full" />
+            <UInput v-model="registerForm.currentPassword" type="password" required class="w-full" />
             </UFormField>
             <UFormField label="New Password" name="new" required>
-            <UInput v-model="state.newPassword" type="password" required class="w-full" />
+            <UInput v-model="registerForm.newPassword" type="password" required class="w-full" />
             </UFormField>
             <UFormField label="Confirm Password" name="confirm" required>
-            <UInput v-model="state.confirmPassword" type="password" required class="w-full" />
+            <UInput v-model="registerForm.confirmPassword" type="password" required class="w-full" />
             </UFormField>
 
             <UButton label="Change password" type="submit" variant="soft" class="self-end" />
