@@ -30,6 +30,16 @@ const registerForm = reactive({
   confirmPassword: ''
 })
 
+const handleLogin = async () => {
+  // Handle login logic here
+  console.log('Login form submitted:', loginForm)
+}
+
+const handleRegister = async () => {
+  // Handle register logic here
+  console.log('Register form submitted:', registerForm)
+}
+
 </script>
 
 <template>
@@ -40,7 +50,7 @@ const registerForm = reactive({
             {{ item.description }}
         </p>
 
-        <UForm :state="loginForm" class="flex flex-col gap-4">
+        <UForm :state="loginForm" class="flex flex-col gap-4" @submit="handleLogin">
             <UFormField label="Email" name="email" required>
               <UInput v-model="loginForm.email" class="w-full" required />
             </UFormField>
@@ -56,7 +66,7 @@ const registerForm = reactive({
             {{ item.description }}
         </p>
 
-        <UForm :state="registerForm" class="flex flex-col gap-4">
+        <UForm :state="registerForm" class="flex flex-col gap-4" @submit="handleRegister">
             <UFormField label="Email" name="email" required>
               <UInput v-model="loginForm.email" class="w-full" required />
             </UFormField>  
