@@ -7,6 +7,7 @@ Online Learning Management System application, offering video courses to paid st
 - Nuxt/Vue
   - NuxtUI
 - Typescript
+  - Zod
 - Primsa/MongoDB
 - Stripe
 
