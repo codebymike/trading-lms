@@ -68,10 +68,10 @@ const handleRegister = async () => {
 
         <UForm :state="registerForm" class="flex flex-col gap-4" @submit="handleRegister">
             <UFormField label="Email" name="email" required>
-              <UInput v-model="loginForm.email" class="w-full" required />
+              <UInput v-model="registerForm.email" class="w-full" required />
             </UFormField>  
             <UFormField label="Name" name="name" required>
-              <UInput v-model="loginForm.name" class="w-full" required />
+              <UInput v-model="registerForm.name" class="w-full" required />
             </UFormField>
             <UFormField label="Password" name="new" required>
               <UInput v-model="registerForm.password" type="password" required class="w-full" />
