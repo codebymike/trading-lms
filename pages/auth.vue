@@ -52,7 +52,7 @@ const handleRegister = async ( event: FormSubmitEvent<RegisterSchema> ) => {
             {{ item.description }}
         </p>
 
-        <UForm :state="loginForm" class="flex flex-col gap-4" @submit="handleLogin">
+        <UForm :schema="loginSchema" :state="loginForm" class="flex flex-col gap-4" @submit="handleLogin">
             <UFormField label="Email" name="email" required>
               <UInput v-model="loginForm.email" class="w-full" required />
             </UFormField>
@@ -68,7 +68,7 @@ const handleRegister = async ( event: FormSubmitEvent<RegisterSchema> ) => {
             {{ item.description }}
         </p>
 
-        <UForm :state="registerForm" class="flex flex-col gap-4" @submit="handleRegister">
+        <UForm :schema="registerSchema" :state="registerForm" class="flex flex-col gap-4" @submit="handleRegister">
             <UFormField label="Email" name="email" required>
               <UInput v-model="registerForm.email" class="w-full" required />
             </UFormField>  
