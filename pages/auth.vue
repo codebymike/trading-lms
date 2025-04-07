@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type { TabsItem } from '@nuxt/ui'
+import type { FormSubmitEvent } from '@nuxt/ui'
+import type { LoginSchema, RegisterSchema } from '../utils/schemas'
 import { reactive } from 'vue'
 const layout = 'auth'
 
@@ -30,12 +32,12 @@ const registerForm = reactive({
   confirmPassword: ''
 })
 
-const handleLogin = async () => {
+const handleLogin = async ( event: FormSubmitEvent<LoginSchema> ) => {
   // Handle login logic here
   console.log('Login form submitted:', loginForm)
 }
 
-const handleRegister = async () => {
+const handleRegister = async ( event: FormSubmitEvent<RegisterSchema> ) => {
   // Handle register logic here
   console.log('Register form submitted:', registerForm)
 }

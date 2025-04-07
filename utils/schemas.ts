@@ -10,5 +10,5 @@ export const registerSchema = authSchema.extend({
     name: z.string().min(1).max(255).default('')
 })
 
-export type loginSchema = z.output<typeof loginSchema>;
-export type registerSchema = z.output<typeof registerSchema>;
+export type LoginSchema = z.output<typeof loginSchema>;
+export type RegisterSchema = z.output<typeof registerSchema>;
