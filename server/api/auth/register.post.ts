@@ -17,4 +17,14 @@ export default defineEventHandler(async (event) => {
         });
     }
 
+    const hashedPassword = await hashPassword(password);
+
+    const newUser = await db.user.create({
+        data: {
+            name,
+            email,
+            hashedPassword
+        }
+    });
+
 });
