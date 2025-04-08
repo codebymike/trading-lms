@@ -17,4 +17,20 @@ export default defineEventHandler(async (event) => {
         });
     }
 
+    if( !userAlreadyExists.hashedPassword ) {
+        const connectedAccount = await db.oauthAccount.findFirst({
+            where: {
+                userId: userAlreadyExists.id
+            }
+        });
+
+        if( connectedAccount ){
+            const oAuthProvider = connectedAccount.providerId;
+            throw createError({
+                statusCode: 401,
+                statusMessage: `Please login with ${oAuthProvider}`
+            });
+        }
+    }
+
 });
