@@ -31,6 +31,15 @@ export default defineEventHandler(async (event) => {
                 statusMessage: `Please login with ${oAuthProvider}`
             });
         }
+
+    } else {
+        const verifiedPassword = await verifyPassword(password, userAlreadyExists.hashedPassword);
+        if( !verifiedPassword ){
+            throw createError({
+                statusCode: 401,
+                statusMessage: 'Invalid password'
+            });
+        }
     }
 
 });
