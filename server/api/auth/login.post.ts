@@ -1,5 +1,6 @@
 import { loginSchema } from "~/utils/schemas";
 import db from "~/lib/prisma";
+import { santiseUser } from "~/utils/auth";
 
 export default defineEventHandler(async (event) => {
     const { password, email } = await readValidatedBody(event, (body) => loginSchema.parse(body));
@@ -41,5 +42,15 @@ export default defineEventHandler(async (event) => {
             });
         }
     }
+
+    const safeUser = santiseUser(userAlreadyExists);
+
+    if( safeUser ){
+        await setUserSession( event, {
+            user: safeUser,
+        });
+    }
+
+    return safeUser
 
 });
