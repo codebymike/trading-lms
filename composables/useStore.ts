@@ -4,3 +4,9 @@ export type APIError = {
     message: string;
     data?: Record<string, any>;
 }
+
+export type State = {
+    isLoading: boolean;
+    apiError: APIError | null;
+    isConfirmModalVisible: boolean;
+}
