@@ -8,6 +8,7 @@ const state = reactive<State>({
 
 export default () => {
     const { isLoading, apiError, isConfirmModalVisible } = toRefs(state);
+    const toast = useToast();
     
     const toggleLoading = (value: boolean) => {
         state.isLoading = value;
@@ -17,5 +18,11 @@ export default () => {
     }
     const setApiError = (error: APIError | null) => {
         state.apiError = error;
+    }
+    const showMessage = ( content: { title: string, description?: string } ) => {
+        toast.add({
+            title: content.title,
+            description: content.description,
+        })
     }
 }
