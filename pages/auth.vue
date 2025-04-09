@@ -33,13 +33,17 @@ const registerForm = reactive({
 })
 
 const handleLogin = async ( event: FormSubmitEvent<LoginSchema> ) => {
-  // Handle login logic here
-  console.log('Login form submitted:', loginForm)
+  await $fetch('/api/auth/login', {
+    method: 'POST',
+    body: event.data
+  })
 }
 
 const handleRegister = async ( event: FormSubmitEvent<RegisterSchema> ) => {
-  // Handle register logic here
-  console.log('Register form submitted:', registerForm)
+  await $fetch('/api/auth/register', {
+    method: 'POST',
+    body: event.data
+  })
 }
 
 </script>
