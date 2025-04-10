@@ -4,6 +4,7 @@ import type { FormSubmitEvent } from '@nuxt/ui'
 import type { LoginSchema, RegisterSchema } from '../utils/schemas'
 import { reactive } from 'vue'
 import useStore from '../composables/useStore'
+import { navigateTo } from 'nuxt/app'
 
 const layout = 'auth'
 
@@ -37,17 +38,35 @@ const registerForm = reactive({
 })
 
 const handleLogin = async ( event: FormSubmitEvent<LoginSchema> ) => {
-  await $fetch('/api/auth/login', {
-    method: 'POST',
-    body: event.data
-  })
+  try {
+    toggleLoading(true)
+    await $fetch('/api/auth/login', {
+      method: 'POST',
+      body: event.data
+    })
+    await navigateTo('/')
+  
+  } catch (error) {
+  
+  } finally {
+    toggleLoading(false)
+  }
 }
 
 const handleRegister = async ( event: FormSubmitEvent<RegisterSchema> ) => {
-  await $fetch('/api/auth/register', {
-    method: 'POST',
-    body: event.data
-  })
+  try {
+    toggleLoading(true)
+    await $fetch('/api/auth/register', {
+      method: 'POST',
+      body: event.data
+    })
+    await navigateTo('/')
+    
+  } catch (error) {
+
+  } finally {
+    toggleLoading(false)
+  }
 }
 
 </script>
