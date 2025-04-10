@@ -3,7 +3,11 @@ import type { TabsItem } from '@nuxt/ui'
 import type { FormSubmitEvent } from '@nuxt/ui'
 import type { LoginSchema, RegisterSchema } from '../utils/schemas'
 import { reactive } from 'vue'
+import useStore from '../composables/useStore'
+
 const layout = 'auth'
+
+const { isLoading, toggleLoading, showMessage, showError } = useStore()
 
 const items = [
   {
