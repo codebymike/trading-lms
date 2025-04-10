@@ -28,8 +28,8 @@ export default () => {
     }
     const showError = ( error: APIError ) => {
         toast.add({
-            title: error.statusMessage,
-            description: error.message,
+            title: error.statusCode.toString(),
+            description: error.message ?? error.statusMessage,
             color: 'error',
         })
     }
