@@ -33,4 +33,15 @@ export default () => {
             color: 'error',
         })
     }
+
+    return {
+        isLoading,
+        apiError,
+        isConfirmModalVisible,
+        toggleLoading,
+        toggleConfirmModal,
+        setApiError,
+        showMessage,
+        showError
+    }
 }
