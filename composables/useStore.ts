@@ -23,6 +23,14 @@ export default () => {
         toast.add({
             title: content.title,
             description: content.description,
+            color: 'primary',
+        })
+    }
+    const showError = ( error: APIError ) => {
+        toast.add({
+            title: error.statusMessage,
+            description: error.message,
+            color: 'error',
         })
     }
 }
