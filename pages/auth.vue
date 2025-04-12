@@ -50,7 +50,7 @@ const handleLogin = async ( event: FormSubmitEvent<LoginSchema> ) => {
   } catch (error) {
     const err = handleError(error)
     showError(err)
-    
+
   } finally {
     toggleLoading(false)
   }
@@ -91,7 +91,7 @@ const handleRegister = async ( event: FormSubmitEvent<RegisterSchema> ) => {
             <UFormField label="Password" name="password" required>
               <UInput v-model="loginForm.password" type="password" class="w-full" required/>
             </UFormField>
-            <UButton label="Save changes" type="submit" variant="soft" class="self-end" />
+            <UButton label="Save changes" type="submit" variant="soft" class="self-end" :disabled="isLoading"/>
         </UForm>
         </template>
 
@@ -113,7 +113,7 @@ const handleRegister = async ( event: FormSubmitEvent<RegisterSchema> ) => {
             <UFormField label="Confirm Password" name="confirm" required>
               <UInput v-model="registerForm.confirmPassword" type="password" required class="w-full" />
             </UFormField>
-            <UButton label="Register" type="submit" variant="soft" class="self-end" />
+            <UButton label="Register" type="submit" variant="soft" class="self-end" :disabled="isLoading"/>
         </UForm>
         </template>
     </UTabs>
