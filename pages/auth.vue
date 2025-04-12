@@ -5,6 +5,7 @@ import type { LoginSchema, RegisterSchema } from '../utils/schemas'
 import { reactive } from 'vue'
 import useStore from '../composables/useStore'
 import { navigateTo } from 'nuxt/app'
+import { handleError } from '~/utils/error'
 
 const layout = 'auth'
 
@@ -47,7 +48,9 @@ const handleLogin = async ( event: FormSubmitEvent<LoginSchema> ) => {
     await navigateTo('/')
   
   } catch (error) {
-  
+    const err = handleError(error)
+    showError(err)
+    
   } finally {
     toggleLoading(false)
   }
@@ -62,7 +65,9 @@ const handleRegister = async ( event: FormSubmitEvent<RegisterSchema> ) => {
     })
     await navigateTo('/')
     
-  } catch (error) {
+  } catch (error: any) {
+    const err = handleError(error)
+    showError(err)
 
   } finally {
     toggleLoading(false)
