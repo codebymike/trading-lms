@@ -15,4 +15,11 @@ export const handleError = (error: any) => {
         }
 
     }
+
+    return {
+        statusCode,
+        statusMessage,
+        message,
+        data
+    }
 }
