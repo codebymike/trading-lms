@@ -23,6 +23,22 @@ export default defineOAuthGitHubEventHandler({
             })
         }
 
+        const oauthAccount = await db.oauthAccount.findFirst({
+            where: {
+                userId: currentUser.id
+            }
+        })
+
+        if( !oauthAccount ) {
+            await db.oauthAccount.create({
+                data: {
+                    userId: currentUser.id,
+                    providerId: 'github',
+                    providerUserId: user.id.toString()
+                }
+            })
+        }
+
         await setUserSession( event, {
             user: {
                 githubId: user.id,
