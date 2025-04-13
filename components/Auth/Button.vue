@@ -8,7 +8,7 @@
             <div class="flex border-gray-200 dark:border-gray-800 w-full border-t border-solid"></div>
         </div>
         <a href="/api/auth/github" class="block">
-            <UButton icon="" square block color="primary">Continue with GitHub</UButton>
+            <UButton icon="i-lucide-github" square block color="primary">Continue with GitHub</UButton>
         </a>
     </div>
 </template>

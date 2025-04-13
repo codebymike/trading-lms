@@ -5,7 +5,7 @@ import type { LoginSchema, RegisterSchema } from '../utils/schemas'
 import { reactive } from 'vue'
 import useStore from '../composables/useStore'
 import { navigateTo } from 'nuxt/app'
-import { handleError } from '~/utils/error'
+import { handleError } from '../utils/error'
 
 const layout = 'auth'
 
@@ -91,7 +91,8 @@ const handleRegister = async ( event: FormSubmitEvent<RegisterSchema> ) => {
             <UFormField label="Password" name="password" required>
               <UInput v-model="loginForm.password" type="password" class="w-full" required/>
             </UFormField>
-            <UButton label="Save changes" type="submit" variant="soft" class="self-end" :disabled="isLoading"/>
+            <UButton label="Login" type="submit" variant="soft" class="self-end" :disabled="isLoading"/>
+            <AuthButton />
         </UForm>
         </template>
 
