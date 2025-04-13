@@ -39,11 +39,14 @@ export default defineOAuthGitHubEventHandler({
             })
         }
 
-        await setUserSession( event, {
-            user: {
-                githubId: user.id,
-            }
-        })
+        const safeUser = santiseUser(currentUser)
+
+        if( safeUser ){
+            await setUserSession( event, {
+                user: safeUser,
+            })
+        }
+
         return sendRedirect( event, '/' )
     },
     onError( event, error ) {
