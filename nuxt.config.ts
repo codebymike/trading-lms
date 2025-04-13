@@ -9,5 +9,9 @@ export default defineNuxtConfig({
     '@prisma/nuxt',
     'nuxt-auth-utils'
   ],
-  css: ['~/assets/css/main.css']
+  css: ['~/assets/css/main.css'],
+  runtimeConfig: {
+    githubId: process.env.NUXT_OAUTH_GITHUB_CLIENT_ID,
+    githubSecret: process.env.NUXT_OAUTH_GITHUB_CLIENT_SECRET,
+  }
 })
