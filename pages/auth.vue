@@ -9,6 +9,7 @@ import { handleError } from '../utils/error'
 
 const layout = 'auth'
 
+const { fetch: refreshSession } = useUserSession()
 const { isLoading, toggleLoading, showMessage, showError } = useStore()
 
 const items = [
@@ -45,6 +46,7 @@ const handleLogin = async ( event: FormSubmitEvent<LoginSchema> ) => {
       method: 'POST',
       body: event.data
     })
+    await refreshSession()
     await navigateTo('/')
   
   } catch (error) {
