@@ -91,7 +91,7 @@ const handleRegister = async ( event: FormSubmitEvent<RegisterSchema> ) => {
             <UFormField label="Password" name="password" required>
               <UInput v-model="loginForm.password" type="password" class="w-full" required/>
             </UFormField>
-            <UButton label="Login" type="submit" variant="soft" class="self-end" :disabled="isLoading"/>
+            <UButton label="Login" type="submit" variant="soft" class="self-end w-full justify-center" :disabled="isLoading" />
             <AuthButton />
         </UForm>
         </template>
