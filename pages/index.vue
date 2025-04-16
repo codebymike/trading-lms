@@ -5,6 +5,11 @@
     </div>
 </template>
 <script setup lang="ts">
+
+definePageMeta({
+    middleware: 'protected',
+})
+
 import { navigateTo } from 'nuxt/app'
 
 const {user, clear} = useUserSession()
