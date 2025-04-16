@@ -13,3 +13,6 @@ Online Learning Management System application, offering video courses to paid st
 - Stripe
 
 ## TODO:
+
+- ~~Auth: basic + oAuth, middleware~~
+- Teacher Pages
