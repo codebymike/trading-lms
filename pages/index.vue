@@ -2,6 +2,8 @@
     <div>
         <pre>{{ user }}</pre>
         <UButton @click=logout>Logout</UButton>
+
+        <UButton to="/teacher">Teacher Mode</UButton>
     </div>
 </template>
 <script setup lang="ts">
