@@ -1,5 +1,5 @@
 <template>
-    <UDropdown :items="items" :ui="{ item: { disabled: 'cursor-text select-text' } }" :popper="{ placement: 'bottom-start' }">
+    <UDropdownMenu :items="items" :ui="{ item: { disabled: 'cursor-text select-text' } }" :popper="{ placement: 'bottom-start' }">
         <UAvatar icon="lucide:circle-user" size="sm" color="black" />
 
         <template #account="">
@@ -20,10 +20,11 @@
             </div>
         </template>
 
-    </UDropdown>
+    </UDropdownMenu>
 </template>
 
 <script setup lang="ts">
+import type { DropdownMenuItem } from '@nuxt/ui'
 const { user, clear } = useUserSession()
 
 const logout = async () => {
@@ -31,14 +32,15 @@ const logout = async () => {
     await navigateTo('/auth')
 }
 
-const items = [
-    [{
-        label:'',
-        slot: 'account',
+const items = ref<DropdownMenuItem[]>([
+    {
+        label: '',
+        icon: 'lucide:circle-user',
+        slot: 'account' as const,
         disabled: true
-    }],[{
+    },{
         label: 'Settings',
         icon: 'lucide:settings',
-    }]
-]
+    }
+])
 </script>
