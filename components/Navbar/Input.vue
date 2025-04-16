@@ -3,5 +3,5 @@
 </template>
 
 <script lang="ts">
-
+const q = ref('')
 </script>
