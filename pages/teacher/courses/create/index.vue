@@ -1,0 +1,33 @@
+<template>
+    <div class="max-w-5xl mx-auto flex md:items-center md:justify-center h-full p-6">
+        <div>
+            <h1>Name your course</h1>
+            <p>What would you like to name your course, don't worry you can change this later</p>
+            <UForm :schema="courseSchema" :state="courseForm" @submit="onSubmit">
+                <div class="space-y-8 mt-8">
+                    <UFormField label="Course title" name="title" help="What will you teach in this course?">
+                        <UInput v-model="courseForm.title" placeholder="Vue.js Development" />
+                    </UFormField>
+                    <div class="flex items-center gap-x-2">
+                        <UButton to="/" variant="soft">Cancel</UButton>
+                        <UButton type="submit" :disabled="isLoading">Continue</UButton>
+                    </div>
+                </div>
+            </UForm>
+        </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+import type { FormSubmitEvent } from '@nuxt/ui';
+
+const { isLoading } = useStore();
+
+const courseForm = ref<CourseSchema>({
+    title: '',
+})
+
+const onSubmit = async ( event : FormSubmitEvent<CourseSchema> ) => {
+}
+
+</script>
