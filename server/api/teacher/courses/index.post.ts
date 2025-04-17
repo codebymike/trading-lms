@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
     if( session.user ) {
         const { title } = await readValidatedBody(event, ( body ) => courseSchema.parse(body))
 
-        await db.course.create({
+        return await db.course.create({
             data: {
                 title,
                 userId: session.user.id

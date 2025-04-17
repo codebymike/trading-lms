@@ -32,6 +32,15 @@ const courseForm = ref<CourseSchema>({
 })
 
 const onSubmit = async ( event : FormSubmitEvent<CourseSchema> ) => {
+    try {
+        await $fetch('/api/teacher/courses', {
+            method: 'POST',
+            body: event.data,
+        });
+    } catch (error) {
+        console.error(error);
+    } finally {
+    }
 }
 
 </script>
