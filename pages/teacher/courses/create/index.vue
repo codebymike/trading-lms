@@ -21,8 +21,12 @@
 <script setup lang="ts">
 import type { FormSubmitEvent } from '@nuxt/ui';
 
-const { isLoading } = useStore();
+definePageMeta({
+    layout: 'teacher',
+    middleware: 'protected',
+})
 
+const { isLoading } = useStore();
 const courseForm = ref<CourseSchema>({
     title: '',
 })
