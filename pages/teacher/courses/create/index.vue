@@ -26,20 +26,23 @@ definePageMeta({
     middleware: 'protected',
 })
 
-const { isLoading } = useStore();
+const { isLoading, toggleLoading, showError, showMessage } = useStore();
 const courseForm = ref<CourseSchema>({
     title: '',
 })
 
 const onSubmit = async ( event : FormSubmitEvent<CourseSchema> ) => {
     try {
+        toggleLoading(true)
         await $fetch('/api/teacher/courses', {
             method: 'POST',
             body: event.data,
         });
     } catch (error) {
-        console.error(error);
+        const err = handleError(error)
+        showError(err)
     } finally {
+        toggleLoading(false)
     }
 }
 
