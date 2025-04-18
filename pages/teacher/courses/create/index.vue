@@ -38,6 +38,7 @@ const onSubmit = async ( event : FormSubmitEvent<CourseSchema> ) => {
             method: 'POST',
             body: event.data,
         });
+        await navigateTo('/teacher/courses');
     } catch (error) {
         const err = handleError(error)
         showError(err)
