@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        <pre>{{ course }}</pre>
     </div>
 </template>
 
@@ -13,7 +13,7 @@ definePageMeta({
 
 const { params } = useRoute()
 
-const { data : course, status } = await useFetch(`/api/teacher/courses/${params.courseId}`, {
+const { data : course } = await useFetch(`/api/teacher/courses/${params.courseId}`, {
     key: `Course-${params.courseId}`,
 })
 
