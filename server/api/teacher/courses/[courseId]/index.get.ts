@@ -9,6 +9,18 @@ export default defineEventHandler(async (event) => {
             where: {
                 userId: session.user.id,
                 id: event.context.params?.courseId
+            },
+            include: {
+                chapters: {
+                    orderBy: {
+                        position: 'asc'
+                    }
+                },
+                attachments: {
+                    orderBy: {
+                        createdAt: 'asc'
+                    }
+                }
             }
         })
     }
