@@ -11,8 +11,10 @@ definePageMeta({
     middleware: 'protected',
 })
 
-const { data : course, status } = await useFetch('/api/teacher/courses/{}', {
-    method: 'GET',
+const { params } = useRoute()
+
+const { data : course, status } = await useFetch(`/api/teacher/courses/${params.courseId}`, {
+    key: `Course-${params.courseId}`,
 })
 
 </script>
