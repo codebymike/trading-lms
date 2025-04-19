@@ -10,6 +10,13 @@
     <div class="p-6">
         <div class="flex items-center justify-between">
 
+            <div class="flex flex-col gap-y-2">
+                <h1 class="text-2xl font-medium">Course Setup</h1>
+                <span class="text-sm text-slate-700">
+                    Complete all fields {{ completionText }}.
+                </span>
+            </div>
+
         </div>
     </div>
 
@@ -35,11 +42,13 @@ const requiredFields = computed( () => {
         course.value?.imageUrl,
         course.value?.price,
         course.value?.categoryId,
-        course.value?.chapters.some( chapter => chapter.isPublished )
+        course.value?.chapters.some( (chapter) => chapter.isPublished )
     ]
 })
 
 const totalFields = computed( () => requiredFields.value.length )
 const completedFields = computed( () => requiredFields.value.filter(Boolean).length )
+const completionText = computed( () => `${completedFields.value}/${totalFields.value}` )
+const isComplete = computed( () => requiredFields.value.every( Boolean ) )
 
 </script>
