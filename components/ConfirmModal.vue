@@ -1,6 +1,5 @@
 <template>
     <div>
-        <UButton label="Open" @click="isOpen = true" />
         <UModal :open="isOpen">
             <UCard>
                 <template #header>
@@ -18,5 +17,14 @@
 </template>
 
 <script setup lang="ts">
-const isOpen = ref(false)
+const { isConfirmModalVisible, toggleConfirmModal } = useStore()
+
+const isOpen = computed({
+    get() {
+        return isConfirmModalVisible.value
+    },
+    set() {
+        toggleConfirmModal(false)
+    }
+})
 </script>
