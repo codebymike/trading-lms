@@ -1,8 +1,9 @@
 <template>
     <div class="flex items-center gap-x-2">
         <UButtom color="gray" :label="courseSchema.isPublished ? 'Unpublish' : 'Publish'" @click="toggleCourse" :disabled="isLoading"></UButtom>
-        <UButton icon="iconify:trash" size="sm" color="warning" variant="soft" square @click="toggleConfirmModal" :disabled="isLoading"></UButton>
+        <UButton icon="iconify:trash" size="sm" color="warning" variant="soft" square @click="toggleConfirmModal(true)" :disabled="isLoading"></UButton>
     </div>
+    <ConfirmModal v-if="isConfirmModalVisible"></ConfirmModal>
 </template>
 
 <script setup lang="ts">
@@ -12,7 +13,7 @@ const props = defineProps<{
     course: Course
 }>()
 
-const { isLoading, toggleConfirmModal } = useStore()
+const { isLoading, toggleConfirmModal, isConfirmModalVisible } = useStore()
 
 const toggleCourse = () => {
     props.course.isPublished = !props.course.isPublished

@@ -1,15 +1,15 @@
 <template>
     <div>
-        <UModal :open="isOpen">
+        <UModal :open="isOpen" prevent-close>
             <UCard>
                 <template #header>
-                    <Placeholder class="h-8" />
+                    <!-- <Placeholder class="h-8" /> -->
                 </template>
 
-                <Placeholder class="h-32" />
+                <!-- <Placeholder class="h-32" /> -->
 
                 <template #footer>
-                    <Placeholder class="h-8" />
+                    <!-- <Placeholder class="h-8" /> -->
                 </template>
             </UCard>
         </UModal>
