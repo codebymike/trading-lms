@@ -32,4 +32,7 @@ const isOpen = computed({
         toggleConfirmModal(false)
     }
 })
+
+const emit = defineEmits('onConfirm')
+
 </script>
