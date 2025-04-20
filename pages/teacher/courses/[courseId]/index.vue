@@ -16,6 +16,7 @@
                     Complete all fields {{ completionText }}.
                 </span>
             </div>
+            <CourseActions :course="course" />
 
         </div>
     </div>
