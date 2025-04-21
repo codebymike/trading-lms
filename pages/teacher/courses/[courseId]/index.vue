@@ -20,9 +20,29 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
-            <div class="flex items-center gap-x-2">
-                <UButton icon="lucide:blocks" size="lg" variant="soft" />
-                <h2 class="text-xl">Customise your course</h2>
+            <div>
+                <div class="flex items-center gap-x-2">
+                    <UButton icon="lucide:blocks" size="lg" variant="soft" />
+                    <h2 class="text-xl">Customise your course</h2>
+                </div>
+                <!-- Course Title Form -->
+                <!-- Course Desc Form -->
+                <!-- Course Image Form -->
+                <!-- Course Category Form -->
+            </div>
+            <div class="space-y-6">
+                <div class="flex items-center gap-x-2">
+                    <UButton icon="lucide:list-check" size="lg" variant="soft" />
+                    <h2 class="text-xl">Course Chapters</h2>
+                </div>
+                <!-- Course Chapters Form -->
+                <div>
+                    <div class="flex items-center gap-x-2">
+                        <UButton icon="lucide:list-check" size="lg" variant="soft" />
+                        <h2 class="text-xl">Sell your course</h2>
+                    </div>
+                    <!-- Course Price Form -->
+                </div>
             </div>
         </div>
     </div>
