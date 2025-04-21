@@ -38,8 +38,16 @@
                 <!-- Course Chapters Form -->
                 <div>
                     <div class="flex items-center gap-x-2">
-                        <UButton icon="lucide:list-check" size="lg" variant="soft" />
+                        <UButton icon="lucide:circle-dollar-sign" size="lg" variant="soft" />
                         <h2 class="text-xl">Sell your course</h2>
+                    </div>
+                    <!-- Course Price Form -->
+                </div>
+
+                <div>
+                    <div class="flex items-center gap-x-2">
+                        <UButton icon="lucide:file" size="lg" variant="soft" />
+                        <h2 class="text-xl">Resources & Attachments</h2>
                     </div>
                     <!-- Course Price Form -->
                 </div>
