@@ -17,7 +17,13 @@
                 </span>
             </div>
             <CourseActions :course="course" />
+        </div>
 
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
+            <div class="flex items-center gap-x-2">
+                <UButton icon="lucide:blocks" size="lg" variant="soft" />
+                <h2 class="text-xl">Customise your course</h2>
+            </div>
         </div>
     </div>
 

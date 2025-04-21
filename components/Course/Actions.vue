@@ -1,6 +1,6 @@
 <template>
     <div class="flex items-center gap-x-2">
-        <UButtom color="gray" :label="courseSchema.isPublished ? 'Unpublish' : 'Publish'" @click="toggleCourse" :disabled="isLoading"></UButtom>
+        <UButtom color="gray" :label="course.isPublished ? 'Unpublish' : 'Publish'" @click="toggleCourse" :disabled="isLoading"></UButtom>
         <UButton icon="lucide:trash-2" size="sm" color="error" variant="soft" square @click="toggleConfirmModal(true)" :disabled="isLoading"></UButton>
     </div>
     <ConfirmModal v-if="isConfirmModalVisible" @on-confirm="deleteCourse"></ConfirmModal>
@@ -21,6 +21,7 @@ const toggleCourse = () => {
 
 const deleteCourse = async () => {
     console.log(`Deleting course... ${props.course.id}`)
+    toggleConfirmModal(false)
 }
 
 </script>
