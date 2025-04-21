@@ -32,6 +32,6 @@ const isOpen = computed({
     }
 })
 
-const emit = defineEmits('onConfirm')
+const emit = defineEmits(['onConfirm'])
 
 </script>

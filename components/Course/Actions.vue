@@ -3,7 +3,7 @@
         <UButtom color="gray" :label="courseSchema.isPublished ? 'Unpublish' : 'Publish'" @click="toggleCourse" :disabled="isLoading"></UButtom>
         <UButton icon="lucide:trash-2" size="sm" color="error" variant="soft" square @click="toggleConfirmModal(true)" :disabled="isLoading"></UButton>
     </div>
-    <ConfirmModal v-if="isConfirmModalVisible"></ConfirmModal>
+    <ConfirmModal v-if="isConfirmModalVisible" @on-confirm="deleteCourse"></ConfirmModal>
 </template>
 
 <script setup lang="ts">
@@ -17,6 +17,10 @@ const { isLoading, toggleConfirmModal, isConfirmModalVisible } = useStore()
 
 const toggleCourse = () => {
     props.course.isPublished = !props.course.isPublished
+}
+
+const deleteCourse = async () => {
+    console.log(`Deleting course... ${props.course.id}`)
 }
 
 </script>
