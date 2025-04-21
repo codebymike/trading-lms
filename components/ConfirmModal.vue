@@ -11,7 +11,7 @@
                     <template #footer>
                         <div class="flex w-full justify-end gap-x-2 items-center">
                             <UButton color="info" variant="ghost" @click="toggleConfirmModal(false)" label="Cancel" />
-                            <UButton color="primary" variant="soft" @click="emit('onConfirm')" label="Continue" />
+                            <UButton color="error" variant="soft" @click="emit('onConfirm')" label="Continue" />
                         </div>
                     </template>
                 </UCard>
