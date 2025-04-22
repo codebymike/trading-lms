@@ -7,11 +7,26 @@
             <UButton variant="ghost" v-if="isEditing" @click="isEditing = !isEditing">Cancel</UButton>
             <UButton icon="lucide:pencil" variant="ghost" v-else @click="isEditing = !isEditing">Edit Title</UButton>
         </div>
+        <p v-if="!isEditing" class="text-sm mt-2">
+            {{ courseForm.title }}
+        </p>
+        <UForm v-else :schema="courseSchema" :state="courseForm" @submit="onSubmit">
+            <div class="space-y-4 mt-8">
+                <UFormField label="Course title" name="title" help="What will you teach in this course?">
+                    <UInput v-model="courseForm.title" placeholder="Vue.js Development" class="w-full" :disabled="isLoading"/>
+                </UFormField>
+                <div class="flex items-center gap-x-2">
+                    <UButton to="/" variant="soft">Cancel</UButton>
+                    <UButton type="submit" :disabled="isLoading">Continue</UButton>
+                </div>
+            </div>
+        </UForm>
     </div>
 </template>
 
 <script setup lang="ts">
 import type { Course } from '@prisma/client'
+import type { FormSubmitEvent } from '@nuxt/ui';
 
 interface TitleFormProps {
     initialData: {
@@ -23,10 +38,28 @@ const props = defineProps<TitleFormProps>()
 
 const courseForm = ref<Partial<Course>>(props.initialData)
 
-watch(() => props.initialData.title, (title) => {
+watch(() => props.initialData.title, (title : string) => {
     courseForm.value.title = title
 })
 
 const isEditing = ref(false);
+
+const { isLoading, toggleLoading, showError } = useStore()
+
+const onSubmit = async ( event : FormSubmitEvent<CourseSchema> ) => {
+    try {
+        toggleLoading(true)
+        await $fetch('/api/teacher/courses', {
+            method: 'POST',
+            body: event.data,
+        });
+        await navigateTo('/teacher/courses');
+    } catch (error) {
+        const err = handleError(error)
+        showError(err)
+    } finally {
+        toggleLoading(false)
+    }
+}
 
 </script>
