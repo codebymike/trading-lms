@@ -77,7 +77,7 @@ const requiredFields = computed( () => {
         course.value?.imageUrl,
         course.value?.price,
         course.value?.categoryId,
-        course.value?.chapters.some( (chapter) => chapter.isPublished )
+        course.value?.chapters.some( (chapter: { isPublished: any }) => chapter.isPublished )
     ]
 })
 
