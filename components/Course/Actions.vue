@@ -1,6 +1,6 @@
 <template>
     <div class="flex items-center gap-x-2">
-        <UButtom color="gray" :label="course.isPublished ? 'Unpublish' : 'Publish'" @click="toggleCourse" :disabled="isLoading"></UButtom>
+        <UButton color="info" :label="course.isPublished ? 'Unpublish' : 'Publish'" @click="toggleCourse" :disabled="isLoading"></UButton>
         <UButton icon="lucide:trash-2" size="sm" color="error" variant="soft" square @click="toggleConfirmModal(true)" :disabled="isLoading"></UButton>
     </div>
     <ConfirmModal v-if="isConfirmModalVisible" @on-confirm="deleteCourse"></ConfirmModal>

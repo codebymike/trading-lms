@@ -26,6 +26,7 @@
                     <h2 class="text-xl">Customise your course</h2>
                 </div>
                 <!-- Course Title Form -->
+                 <CourseTitleForm v-if="course" :initialData="course" />
                 <!-- Course Desc Form -->
                 <!-- Course Image Form -->
                 <!-- Course Category Form -->

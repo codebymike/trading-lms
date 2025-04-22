@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-6 border bg-slate-100 rounded p-4">
+    <div class="mt-6 border bg-slate-100 dark:bg-slate-800 rounded p-4">
         <div class="font-medium flex items-center justify-between">
             
             Course Title
@@ -16,8 +16,7 @@
                     <UInput v-model="courseForm.title" placeholder="Vue.js Development" class="w-full" :disabled="isLoading"/>
                 </UFormField>
                 <div class="flex items-center gap-x-2">
-                    <UButton to="/" variant="soft">Cancel</UButton>
-                    <UButton type="submit" :disabled="isLoading">Continue</UButton>
+                    <UButton type="submit" :disabled="isLoading">Save</UButton>
                 </div>
             </div>
         </UForm>
