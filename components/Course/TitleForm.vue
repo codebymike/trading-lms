@@ -55,11 +55,18 @@ const onSubmit = async ( event : FormSubmitEvent<CourseSchema> ) => {
 
         refreshNuxtData(`Teacher-Course-${params.courseId}`)
 
+        showMessage({
+            title: 'Course updated',
+            description: 'Your course has been updated successfully.',
+        })
+        isEditing.value = false
+
     } catch (error) {
         const err = handleError(error)
         showError(err)
     } finally {
         toggleLoading(false)
+        isEditing.value = false
     }
 }
 
