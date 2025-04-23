@@ -5,7 +5,7 @@
             Course Title
 
             <UButton variant="ghost" v-if="isEditing" @click="isEditing = !isEditing">Cancel</UButton>
-            <UButton icon="lucide:pencil" variant="ghost" v-else @click="isEditing = !isEditing">Edit Title</UButton>
+            <UButton icon="lucide:pencil" variant="ghost" v-else @click="isEditing = !isEditing">Edit</UButton>
         </div>
         <p v-if="!isEditing" class="text-sm mt-2">
             {{ courseForm.title }}
