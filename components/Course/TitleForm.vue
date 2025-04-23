@@ -33,26 +33,28 @@ interface TitleFormProps {
     }
 }
 
-const props = defineProps<TitleFormProps>()
+const { params } = useRoute()
+const { isLoading, toggleLoading, showMessage, showError } = useStore()
+const isEditing = ref(false);
 
+const props = defineProps<TitleFormProps>()
 const courseForm = ref<Partial<Course>>(props.initialData)
 
 watch(() => props.initialData.title, (title : string) => {
     courseForm.value.title = title
 })
 
-const isEditing = ref(false);
-
-const { isLoading, toggleLoading, showError } = useStore()
 
 const onSubmit = async ( event : FormSubmitEvent<CourseSchema> ) => {
     try {
         toggleLoading(true)
-        await $fetch('/api/teacher/courses', {
-            method: 'POST',
+        await $fetch(`/api/teacher/courses/${params.courseId}`, {
+            method: 'PATCH',
             body: event.data,
         });
-        await navigateTo('/teacher/courses');
+
+        refreshNuxtData(`Teacher-Course-${params.courseId}`)
+
     } catch (error) {
         const err = handleError(error)
         showError(err)
