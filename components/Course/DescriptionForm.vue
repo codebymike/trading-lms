@@ -12,8 +12,8 @@
         </p>
         <UForm v-else :schema="courseSchema" :state="courseForm" @submit="onSubmit">
             <div class="space-y-4 mt-8">
-                <UFormField label="Description" name="description" help="Course description">
-                    <UInput v-model="courseForm.description" placeholder="" class="w-full" :disabled="isLoading"/>
+                <UFormField label="Course Description" name="description" help="Describe your course">
+                    <UTextarea v-model="courseForm.description" placeholder="e.g In this course we will cover..." class="w-full" :disabled="isLoading"/>
                 </UFormField>
                 <div class="flex items-center gap-x-2">
                     <UButton type="submit" :disabled="isLoading">Save</UButton>
@@ -29,7 +29,7 @@ import type { FormSubmitEvent } from '@nuxt/ui';
 
 interface DescriptionFormProps {
     initialData: {
-        description: string;
+        description: string | null;
     }
 }
 
@@ -40,7 +40,7 @@ const isEditing = ref(false);
 const props = defineProps<DescriptionFormProps>()
 const courseForm = ref<Partial<Course>>(props.initialData)
 
-watch(() => props.initialData.description, (description : string) => {
+watch(() => props.initialData.description, (description : string | null) => {
     courseForm.value.description = description
 })
 

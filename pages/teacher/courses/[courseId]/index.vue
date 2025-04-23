@@ -16,6 +16,7 @@
                     Complete all fields {{ completionText }}.
                 </span>
             </div>
+            <!-- @vue-expect-error -->
             <CourseActions v-if="course" :course="course" />
         </div>
 
@@ -28,6 +29,7 @@
                 <!-- Course Title Form -->
                  <CourseTitleForm :initialData="course" />
                 <!-- Course Desc Form -->
+                <CourseDescriptionForm :initialData="course" />
                 <!-- Course Image Form -->
                 <!-- Course Category Form -->
             </div>
