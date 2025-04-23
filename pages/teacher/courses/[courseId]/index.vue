@@ -19,14 +19,14 @@
             <CourseActions v-if="course" :course="course" />
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
+        <div v-if="status !== 'pending' && course" class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
             <div>
                 <div class="flex items-center gap-x-2">
                     <UButton icon="lucide:blocks" size="lg" variant="soft" />
                     <h2 class="text-xl">Customise your course</h2>
                 </div>
                 <!-- Course Title Form -->
-                 <CourseTitleForm v-if="course" :initialData="course" />
+                 <CourseTitleForm :initialData="course" />
                 <!-- Course Desc Form -->
                 <!-- Course Image Form -->
                 <!-- Course Category Form -->
