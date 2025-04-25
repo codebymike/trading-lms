@@ -15,12 +15,10 @@ export default defineNuxtConfig({
     githubId: process.env.NUXT_OAUTH_GITHUB_CLIENT_ID,
     githubSecret: process.env.NUXT_OAUTH_GITHUB_CLIENT_SECRET,
     public: {
-      cloudinary: {
-        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
-        uploadPreset: process.env.CLOUDINARY_UPLOAD_PRESET
-      }
+      cloudinaryCloudName: process.env.NUXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+      uploadPreset: process.env.NUXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
     },
-    cloudinaryApiKey: process.env.CLOUDINARY_API_KEY,
-    cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET
+    cloudinaryApiKey: process.env.NUXT_CLOUDINARY_API_KEY,
+    cloudinaryApiSecret: process.env.NUXT_CLOUDINARY_API_SECRET
   }
 })
