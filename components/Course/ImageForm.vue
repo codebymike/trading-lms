@@ -34,6 +34,7 @@
             <div v-else>
                 <div class="space-y-4 mt-8">
                     <!-- Upload Button -->
+                     Upload Button
                 </div>
             </div>
         </UForm>
@@ -44,9 +45,9 @@
 import type { Course } from '@prisma/client'
 import type { FormSubmitEvent } from '@nuxt/ui';
 
-interface TitleFormProps {
+interface ImageFormProps {
     initialData: {
-        title: string;
+        image: string;
     }
 }
 
@@ -54,11 +55,11 @@ const { params } = useRoute()
 const { isLoading, toggleLoading, showMessage, showError } = useStore()
 const isEditing = ref(false);
 
-const props = defineProps<TitleFormProps>()
+const props = defineProps<ImageFormProps>()
 const courseForm = ref<Partial<Course>>(props.initialData)
 
-watch(() => props.initialData.title, (title : string) => {
-    courseForm.value.title = title
+watch(() => props.initialData.image, (title : string) => {
+    courseForm.value.image = image
 })
 
 

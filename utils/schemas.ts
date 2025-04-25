@@ -20,5 +20,6 @@ export type RegisterSchema = z.output<typeof registerSchema>;
 export const courseSchema = z.object({
   title: z.string().min(1, { message: 'Title is required' }),
   description: z.string().nullish(),
+  imageUrl: z.string().url({ message: 'Invalid URL' }).min(1, { message: 'Image URL is required' }),
 });
 export type CourseSchema = z.output<typeof courseSchema>;
