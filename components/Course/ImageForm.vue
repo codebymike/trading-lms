@@ -11,10 +11,9 @@
         </div>
 
         <UForm :schema="courseSchema" :state="courseForm" @submit="onSubmit">
-            <template v-if="!isEditing">
-                <div class="mt-8">
+            <div v-if="!isEditing" class="mt-8">
                     <div v-if="!courseForm.imageUrl" class="flex flex-col items-center justify-center h-60 bg-neutral-50 rounded-md mt-2">
-                        <Icon name="Image" icon="lucide:image" class="h-10 w-10 text-slate-500" />
+                        <Icon name="lucide:image" class="h-10 w-10 text-slate-500" />
                         <div class="text-xs text-muted-foreground mt-4 text-center">
                             No Image Found
                         </div>
@@ -23,7 +22,6 @@
                         <img :src="courseForm.imageUrl" alt="Course Image" class="object-cover rounded-md max-h-[200px] w-full" />
                     </div>
                 </div>
-            </template>
             <div v-else>
                 <div class="space-y-4 mt-8">
                     <!-- Upload Button -->
