@@ -14,9 +14,9 @@
     </CldUploadWidget>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 
-const { public: { uploadPreset } } = useRuntimeConfig()
+const config = useRuntimeConfig()
 
 interface UploadButtonProps {
     isVideo?: boolean
