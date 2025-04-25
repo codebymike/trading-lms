@@ -11,6 +11,7 @@ Online Learning Management System application, offering video courses to paid st
   - Zod
 - Primsa/MongoDB
 - Stripe
+- Cloudinary (image uploads)
 
 ## TODO:
 
