@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/icon',
     '@nuxt/ui',
+    '@nuxtjs/cloudinary',
     '@prisma/nuxt',
     'nuxt-auth-utils'
   ],
