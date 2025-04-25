@@ -31,6 +31,7 @@
                 <!-- Course Desc Form -->
                 <CourseDescriptionForm :initialData="course" />
                 <!-- Course Image Form -->
+                <CourseImageForm :initialData="course" />
                 <!-- Course Category Form -->
             </div>
             <div class="space-y-6">
