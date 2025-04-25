@@ -1,6 +1,6 @@
 <template>
-    <CldUploadWidget v-slot="{ open }" uploadPreset="nuxt-cloudinary-unsigned" :options="{ clientAllowedFormats: allowedFormats, resourceType: undefined}" :on-upload=handleUpload>
-
+    <CldUploadWidget v-slot="{ open }" uploadPreset="nuxt-cloudinary-unsigned" :options="{ clientAllowedFormats: allowedFormats, resourceType: undefined}" :onUpload="handleUpload">
+        
     </CldUploadWidget>
 </template>
 
@@ -27,10 +27,10 @@ interface Result {
 
 const handleUpload = (result: Ref<Result>) => {
 
-    console.log('Upload result:', result)
-    console.log(result.value.info)
+    console.log('Upload result:', result.value)
+    console.log(result.value.info.secure_url)
 
-    // emit('onChange', secure_url)
+    emit('onChange', result.value.info.secure_url)
 }
 
 </script>
