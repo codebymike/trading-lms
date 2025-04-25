@@ -24,8 +24,11 @@
                 </div>
             <div v-else>
                 <div class="space-y-4 mt-8">
-                    <!-- Upload Button -->
-                     Upload Button
+                    <UploadButton @on-change="async (url :string) => {
+                        await onSubmit({
+                            imageUrl: url,
+                        })
+                    }"></UploadButton>
                 </div>
             </div>
         </UForm>
@@ -34,7 +37,6 @@
 
 <script setup lang="ts">
 import type { Course } from '@prisma/client'
-import type { FormSubmitEvent } from '@nuxt/ui';
 
 interface ImageFormProps {
     initialData: {
@@ -54,12 +56,12 @@ watch(() => props.initialData.imageUrl, (imageUrl : string | null) => {
 })
 
 
-const onSubmit = async ( event : FormSubmitEvent<CourseSchema> ) => {
+const onSubmit = async ( event : Partial<CourseSchema> ) => {
     try {
         toggleLoading(true)
         await $fetch(`/api/teacher/courses/${params.courseId}`, {
             method: 'PATCH',
-            body: event.data,
+            body: event,
         });
 
         refreshNuxtData(`Teacher-Course-${params.courseId}`)
