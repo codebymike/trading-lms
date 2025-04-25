@@ -1,9 +1,11 @@
 <template>
-    <CldUploadWidget v-slot="{ open }" uploadPreset="nuxt-cloudinary-unsigned">
-        <button type="button" @click="open">Upload an Image</button>
+    <CldUploadWidget v-slot="{ open }" uploadPreset="nuxt-cloudinary-unsigned" :options="{ clientAllowedFormats: allowedFormats, resourceType: undefined}" :on-upload=handleUpload>
+        
     </CldUploadWidget>
 </template>
 
 <script lang="ts">
+
+const { public: { uploadPreset } } = useRuntimeConfig()
 
 </script>
