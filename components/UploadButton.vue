@@ -30,20 +30,17 @@ defineProps<UploadButtonProps>()
 
 const emit = defineEmits(['onChange'])
 
-interface Result {
-    info?: {
-        secure_url?: string
-    } | string
-}
+// interface Result {
+//     info?: {
+//         secure_url?: string
+//     } | string
+// }
 
-const handleUpload = (result: Result) => {
+const handleUpload = (result: any) => {
 
     console.log('Upload result:', result)
-    const secureUrl = typeof result.info === 'object' && result.info?.secure_url 
-        ? result.info.secure_url 
-        : typeof result.info === 'string' 
-        ? result.info 
-        : undefined;
+    
+    const secureUrl = result?.info?.secure_url || result?.secure_url || result?.url
 
     if (secureUrl) {
         console.log('Secure URL:', secureUrl);
