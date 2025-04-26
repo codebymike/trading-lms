@@ -24,11 +24,14 @@
                 </div>
             <div v-else>
                 <div class="space-y-4 mt-8">
-                    <UploadButton @on-change="async (url :string) => {
-                        await onSubmit({
-                            imageUrl: url,
-                        })
-                    }"></UploadButton>
+                    <UploadButton 
+                        :allowedFormats="['image/jpeg', 'image/png']" 
+                        @on-change="async (url :string) => {
+                            await onSubmit({
+                                imageUrl: url,
+                            })
+                        }">
+                    </UploadButton>
                 </div>
             </div>
         </UForm>
