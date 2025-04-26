@@ -1,9 +1,9 @@
 <template>
     <CldUploadWidget 
         v-slot="{ open }" 
-        uploadPreset="nuxt-cloudinary-unsigned" 
-        :options="{ clientAllowedFormats: allowedFormats, resourceType: undefined}" 
-        :onResult="handleUpload" 
+        uploadPreset="nuxt_lms" 
+        :onSuccess="handleUpload" 
+        :onResult="handleUpload"
         :onError="handleError"
         >
         <UCard @click="open" class="cursor-pointer h-36 flex justify-center items-center">

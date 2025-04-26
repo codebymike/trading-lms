@@ -26,7 +26,7 @@
                 <div class="space-y-4 mt-8">
                     <UploadButton 
                         :allowedFormats="['image/jpeg', 'image/png']" 
-                        @on-change="async (url :string) => {
+                        @on-change="async (url) => {
                             await onSubmit({
                                 imageUrl: url,
                             })
