@@ -37,13 +37,9 @@ const emit = defineEmits(['onChange'])
 // }
 
 const handleUpload = (result: any) => {
-
-    console.log('Upload result:', result)
-    
     const secureUrl = result?.info?.secure_url || result?.secure_url || result?.url
 
     if (secureUrl) {
-        console.log('Secure URL:', secureUrl);
         emit('onChange', secureUrl);
     } else {
         console.error('Secure URL not found in result:', result);
