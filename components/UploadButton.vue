@@ -1,7 +1,7 @@
 <template>
     <CldUploadWidget 
         v-slot="{ open }" 
-        uploadPreset="nuxt_lms" 
+        :uploadPreset="uploadPreset" 
         :onSuccess="handleUpload" 
         :onResult="handleUpload"
         :onError="handleError"
@@ -19,7 +19,10 @@
 
 <script setup lang="ts">
 
-const config = useRuntimeConfig()
+
+// const config = useRuntimeConfig()
+// const uploadPreset = config.public.uploadPreset
+const uploadPreset = 'nuxt_lms'
 
 interface UploadButtonProps {
     isVideo?: boolean
