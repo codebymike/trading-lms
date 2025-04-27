@@ -17,5 +17,7 @@ async function createCategories() {
     }
   } catch (error) {
     console.error("Error creating categories:", error);
+  } finally {
+    await db.$disconnect();
   }
 }
