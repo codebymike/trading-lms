@@ -19,5 +19,8 @@ async function createCategories() {
     console.error("Error creating categories:", error);
   } finally {
     await db.$disconnect();
+    console.log("seeding completed");
   }
 }
+
+createCategories();
