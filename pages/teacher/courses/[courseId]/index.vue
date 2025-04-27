@@ -33,6 +33,7 @@
                 <!-- Course Image Form -->
                 <CourseImageForm :initialData="course" />
                 <!-- Course Category Form -->
+                <CourseCategoryForm />
             </div>
             <div class="space-y-6">
                 <div class="flex items-center gap-x-2">
