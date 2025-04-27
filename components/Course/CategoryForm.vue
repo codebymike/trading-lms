@@ -40,11 +40,14 @@ const isEditing = ref(false);
 
 const props = defineProps<CategoryFormProps>()
 const courseForm = ref<Partial<Course>>(props.initialData)
+const categories = ref(props.options)
 
-watch(() => props.initialData.categoryId, (category : string) => {
-    courseForm.value.category = category
+watch(() => props.initialData.categoryId, (newCategoryId : string | null) => {
+    courseForm.value.categoryId = newCategoryId
 })
-
+watch(() => props.options, (newOptions: { id: string, name: string }[]) => {
+    categories.value = newOptions
+})
 
 const onSubmit = async ( event : FormSubmitEvent<CourseSchema> ) => {
     try {
