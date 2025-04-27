@@ -8,13 +8,18 @@
             <UButton icon="lucide:pencil" variant="ghost" v-else @click="isEditing = !isEditing">Edit</UButton>
         </div>
         <p v-if="!isEditing" class="text-sm mt-2">
-            {{ courseForm.category }}
+            {{ selectedOption ? selectedOption.name : 'No category selected' }}
         </p>
         <UForm v-else :schema="courseSchema" :state="courseForm" @submit="onSubmit">
             <div class="space-y-4 mt-8">
-                <UFormField label="Course title" name="title" help="What will you teach in this course?">
-                    <UInput v-model="courseForm.title" placeholder="Vue.js Development" class="w-full" :disabled="isLoading"/>
-                </UFormField>
+                
+                <USelectMenu
+                    v-model="courseForm.categoryId"
+                    :options="options"
+                    label="Select a category"
+                    placeholder="Select a category"
+                    :disabled="isLoading" />
+
                 <div class="flex items-center gap-x-2">
                     <UButton type="submit" :disabled="isLoading">Save</UButton>
                 </div>
@@ -41,6 +46,7 @@ const isEditing = ref(false);
 const props = defineProps<CategoryFormProps>()
 const courseForm = ref<Partial<Course>>(props.initialData)
 const categories = ref(props.options)
+const selectedOption = ref(props.options.find((option: { id: string; name: string }) => option.id === props.initialData.categoryId) || null)
 
 watch(() => props.initialData.categoryId, (newCategoryId : string | null) => {
     courseForm.value.categoryId = newCategoryId
