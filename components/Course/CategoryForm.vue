@@ -29,8 +29,9 @@ import type { FormSubmitEvent } from '@nuxt/ui';
 
 interface CategoryFormProps {
     initialData: {
-        category: string;
-    }
+        categoryId: string | null;
+    },
+    options: { id: string, name: string }[]
 }
 
 const { params } = useRoute()
@@ -40,7 +41,7 @@ const isEditing = ref(false);
 const props = defineProps<CategoryFormProps>()
 const courseForm = ref<Partial<Course>>(props.initialData)
 
-watch(() => props.initialData.category, (category : string) => {
+watch(() => props.initialData.categoryId, (category : string) => {
     courseForm.value.category = category
 })
 
