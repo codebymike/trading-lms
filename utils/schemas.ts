@@ -22,5 +22,6 @@ export const courseSchema = z.object({
   description: z.string().nullish(),
   imageUrl: z.string().url({ message: 'Invalid URL' }).min(1, { message: 'Image URL is required' }),
   categoryId: z.string().min(1, { message: 'Category is required' }),
+  price: z.coerce.number().min(0, { message: 'Price must be a positive number' }).default(0),
 });
 export type CourseSchema = z.output<typeof courseSchema>;
