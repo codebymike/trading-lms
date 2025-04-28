@@ -33,7 +33,7 @@
                 <!-- Course Image Form -->
                 <CourseImageForm :initialData="course" />
                 <!-- Course Category Form -->
-                <CourseCategoryForm />
+                <CourseCategoryForm v-if="categories" :initial-data="course" :options="categories" />
             </div>
             <div class="space-y-6">
                 <div class="flex items-center gap-x-2">
@@ -72,6 +72,10 @@ definePageMeta({
 const { params } = useRoute()
 
 const { data : course, status } = await useFetch(`/api/teacher/courses/${params.courseId}`, {
+    key: `Teacher-Course-${params.courseId}`,
+})
+
+const { data : categories } = await useFetch(`/api/categories`, {
     key: `Teacher-Course-${params.courseId}`,
 })
 
