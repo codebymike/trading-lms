@@ -8,7 +8,7 @@
             <UButton icon="lucide:pencil" variant="ghost" v-else @click="isEditing = !isEditing">Edit</UButton>
         </div>
         <p v-if="!isEditing" class="text-sm mt-2">
-            {{ courseForm.price }}
+            {{ courseForm.price ? formatPrice(courseForm.price) : 'Free' }}
         </p>
         <UForm v-else :schema="courseSchema" :state="courseForm" @submit="onSubmit">
             <div class="space-y-4 mt-8">

@@ -47,6 +47,7 @@
                         <h2 class="text-xl">Sell your course</h2>
                     </div>
                     <!-- Course Price Form -->
+                    <CoursePriceForm :initialData="course" />
                 </div>
 
                 <div>
