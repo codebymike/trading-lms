@@ -17,3 +17,5 @@ Online Learning Management System application, offering video courses to paid st
 
 - ~~Auth: basic + oAuth, middleware~~
 - Teacher Pages
+- Course Pages
+- Stripe Intergration
